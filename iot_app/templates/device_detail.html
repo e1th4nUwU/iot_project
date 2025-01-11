@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Detail</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'iot_app/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Device Details</h1>
+    </header>
+    <main>
+        <h1>Device {{ device.device_id }}</h1>
+        <p>Monitoring Time: {{ device.monitoring_time }} seconds</p>
+        <p>State: {{ device.state }}</p>
+
+        <a href="{% url 'update_device_configuration' device.device_id %}">Update Configuration</a>
+        <a href="{% url 'view_device_logs' device.device_id %}">View Logs</a>
+        <a href="{% url 'dashboard' %}">Back to Dashboard</a>
+    </main>
+</body>
+</html>

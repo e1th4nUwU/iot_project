@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Configuration</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'iot_app/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Update Configuration for {{ device.device_id }}</h1>
+    </header>
+
+    <main>
+        <form method="post">
+            {% csrf_token %}
+            <label for="monitoring_time">Monitoring Time (seconds):</label>
+            <input type="number" id="monitoring_time" name="monitoring_time" value="{{ device.monitoring_time }}">
+            <button type="submit">Save</button>
+        </form>
+
+        <a href="{% url 'device_detail' device.device_id %}" class="back-link">Back</a>
+    </main>
+</body>
+</html>

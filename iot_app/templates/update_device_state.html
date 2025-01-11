@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update State</title>
+</head>
+<body>
+    <h1>Update State for {{ device.device_id }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="state">New State:</label>
+        <input type="text" id="state" name="state" value="{{ device.state }}">
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'device_detail' device.device_id %}">Back</a>
+</body>
+</html>

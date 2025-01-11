@@ -1,0 +1,13 @@
+# Service file
+[Unit]
+Description=MQTT Subscriber Service
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+ExecStart=/home/ubuntu/proyecto-iot-eithan/subscriber_service.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

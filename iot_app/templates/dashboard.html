@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'iot_app/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Device Dashboard</h1>
+    </header>
+    <main>
+        <ul>
+            {% for device in devices %}
+                <li>
+                    <span>
+                        <a href="{% url 'device_detail' device.device_id %}">{{ device.device_id }}</a>
+                    </span>
+                    <span>State: {{ device.state }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+
+    <!-- Logout button , go to /logout -->
+    <div class="logout-container">
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+</body>
+</html>

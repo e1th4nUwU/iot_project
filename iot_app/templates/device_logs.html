@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Dispositivo</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'iot_app/style.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Agregar jQuery -->
+</head>
+<body>
+    <div class="device-container">
+        <h1 class="device-title">Detalles del Dispositivo: {{ device.device_id }}</h1>
+        <p><strong>Tiempo de Monitoreo:</strong> {{ device.monitoring_time }} segundos</p>
+        <p><strong>Estado:</strong> {{ device.state }}</p>
+
+        <div class="logs-container">
+            <h2>Registros de Logs</h2>
+            <ul id="log-list" class="log-list">
+                {% for log in logs %}
+                    <li class="log-item">{{ log.timestamp }}: {{ log.message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+	
+	<!-- Botón para limpiar los logs -->
+	<button id="clear-logs" class="clear-logs-button">Limpiar Logs</button>
+
+        <a href="{% url 'dashboard' %}" class="back-button">Volver a la lista</a>
+    </div>
+
+
+    <script>
+        // Función para cargar los logs automáticamente
+        function cargarLogs() {
+            $.get("{% url 'get_logs' device.device_id %}", function(data) {
+                var logList = $('#log-list');
+                logList.empty(); // Limpiar los logs actuales
+
+                // Agregar los logs nuevos
+                data.logs.forEach(function(log) {
+                    logList.append('<li class="log-item">' + log.timestamp + ': ' + log.message + '</li>');
+                });
+            });
+        }
+        // Cargar los logs cada segundo
+        setInterval(cargarLogs, 1000);
+
+	// Función para limpiar los logs
+    $('#clear-logs').on('click', function() {
+        // Enviar una solicitud POST para borrar los logs
+        $.ajax({
+            url: "{% url 'clear_logs' device.device_id %}",
+            type: 'POST',
+            data: {
+                'csrfmiddlewaretoken': '{{ csrf_token }}'  // Incluir CSRF token
+            },
+            success: function(response) {
+                // Limpiar la lista de logs en la interfaz de usuario
+                $('#log-list').empty();
+                alert('Los logs han sido limpiados.');
+            },
+            error: function(error) {
+                alert('Hubo un error al limpiar los logs.');
+            }
+        });
+    });
+    </script>
+</body>
+</html>
+

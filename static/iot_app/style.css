@@ -1,0 +1,207 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+header {
+    background-color: #00629B;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+main {
+    padding: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+li {
+    background: #e8f4fc;
+    margin: 0.5rem 0;
+    padding: 0.75rem;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+li a {
+    text-decoration: none;
+    color: #00629B;
+    font-weight: bold;
+}
+li a:hover {
+    text-decoration: underline;
+}
+.back-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    text-decoration: none;
+    color: #fff;
+    background-color: #FFA300;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+}
+.back-link:hover {
+    background-color: #e69100;
+}
+
+main h1 {
+    color: #00629B;
+}
+main p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+a {
+    display: inline-block;
+    margin-top: 1rem;
+    text-decoration: none;
+    color: #fff;
+    background-color: #FFA300;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+}
+a:hover {
+    background-color: #e69100;
+}
+a + a {
+    margin-left: 0.5rem;
+}
+.back-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #00B5E2;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    background-color: #009FBF;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+/* Timestamp Styling */
+ul li .timestamp {
+    font-weight: bold;
+    color: #00629B;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+label {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+input[type="number"] {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    background-color: #00B5E2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #009FBF;
+}
+/* Estilo para la página del dispositivo */
+.device-container {
+    padding: 20px; /* Espaciado alrededor del contenido */
+    margin: 0 auto; /* Centra el contenedor en la página */
+    max-width: 1200px; /* Establecer un ancho máximo para la página */
+    background-color: #f4f4f4; /* Fondo gris claro */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+/* Añadir espacio dentro de los elementos de texto */
+.device-title, .mqtt-command h2, .logs-container h2 {
+    margin-bottom: 15px; /* Añadir espacio debajo de los títulos */
+}
+
+/* Estilos adicionales para el formulario y los logs */
+.mqtt-command, .logs-container {
+    margin-bottom: 30px; /* Espacio debajo de cada sección */
+}
+
+.command-input {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px; /* Espacio entre el campo de texto y el botón */
+}
+
+.command-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.command-button:hover {
+    background-color: #0056b3;
+}
+
+.log-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.log-item {
+    margin-bottom: 10px;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.back-button:hover {
+    background-color: #218838;
+}
+
